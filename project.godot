@@ -17,13 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SettingLoader="*res://scripts/settingLoader.gd"
 SceneInfo="*res://scripts/scene_info.gd"
 
 [display]
 
 window/size/viewport_width=1728
-window/size/viewport_height=400
+window/size/viewport_height=700
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

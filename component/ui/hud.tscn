@@ -35,6 +35,28 @@ text = "654"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="goal_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "goal point : "
+
+[node name="goal_value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="best_labe" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "your best score : "
+
+[node name="best_value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="life_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "lifes : "

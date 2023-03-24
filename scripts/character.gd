@@ -26,13 +26,13 @@ func _physics_process(delta):
 func _on_detector_area_entered(area):
 	if ("line" in area) and (SceneInfo.platform_current_line == area.line):
 		if area.is_in_group("point"):
-			print("point")
+			#print("point")
 			SceneInfo.points += area.point
 			SceneInfo.coin_count -= 1
 			area.queue_free()
 
 		if area.is_in_group("obstacle"):
-			print("obstacle")
+			#print("obstacle")
 			SceneInfo.life -= 1
 			SceneInfo.scene_speed = SceneInfo.scene_base_speed
 			

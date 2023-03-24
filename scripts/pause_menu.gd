@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var main_menu = "res://scenes/main.tscn"
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("menu"):
 		if not (SceneInfo.is_win or SceneInfo.is_lose):
 			visible = !visible

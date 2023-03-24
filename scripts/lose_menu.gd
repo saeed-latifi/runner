@@ -3,7 +3,7 @@ extends CanvasLayer
 var main_menu = "res://scenes/main.tscn"
 var first_level = "res://scenes/levels/first_level.tscn"
 
-func _process(delta):
+func _process(_delta):
 	if SceneInfo.is_lose:
 		visible = true
 		SceneInfo.is_paused = true
