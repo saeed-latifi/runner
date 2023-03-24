@@ -1,0 +1,52 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpvrpfq6nj6x6"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_uvert"]
+[ext_resource type="PackedScene" uid="uid://dwjjg7pi1dc46" path="res://component/line.tscn" id="1_x4ghp"]
+[ext_resource type="PackedScene" uid="uid://d4lj0pbsqo6y4" path="res://component/obstacles/obstacle_bush.tscn" id="2_dy7q6"]
+[ext_resource type="PackedScene" uid="uid://da1pty63rplb7" path="res://scenes/character.tscn" id="3_6hqup"]
+[ext_resource type="PackedScene" uid="uid://foe0ead8ys0c" path="res://component/obstacles/obstacle_gallon.tscn" id="3_62miu"]
+[ext_resource type="PackedScene" uid="uid://bqb1bjbf70n22" path="res://component/floor.tscn" id="4_02hy8"]
+[ext_resource type="PackedScene" uid="uid://bqdgoqpvq5jyd" path="res://component/obstacles/obstacle_wall.tscn" id="4_bhmdk"]
+[ext_resource type="PackedScene" uid="uid://bqybccj8e7v7b" path="res://component/point/coin.tscn" id="7_fjr2x"]
+[ext_resource type="PackedScene" uid="uid://sxdoirrrqib8" path="res://component/ui/hud.tscn" id="8_l1fam"]
+[ext_resource type="PackedScene" uid="uid://cd63ehuo0nbkl" path="res://component/ui/pause_menu.tscn" id="9_8mro1"]
+[ext_resource type="PackedScene" path="res://component/ui/lose.tscn" id="11_gset4"]
+[ext_resource type="PackedScene" uid="uid://b3lq6oajntcxi" path="res://component/ui/win.tscn" id="12_ah5pq"]
+
+[sub_resource type="Gradient" id="Gradient_otj6w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5csi"]
+gradient = SubResource("Gradient_otj6w")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="level" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_uvert")
+
+[node name="HUD" parent="." instance=ExtResource("8_l1fam")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(40, 40)
+texture = SubResource("GradientTexture2D_b5csi")
+metadata/_edit_lock_ = true
+
+[node name="line" parent="." instance=ExtResource("1_x4ghp")]
+position = Vector2(-282, 135)
+obstacles = Array[PackedScene]([ExtResource("2_dy7q6"), ExtResource("3_62miu"), ExtResource("4_bhmdk")])
+coin = ExtResource("7_fjr2x")
+
+[node name="floor" parent="." instance=ExtResource("4_02hy8")]
+position = Vector2(-187, 137)
+
+[node name="character" parent="floor" instance=ExtResource("3_6hqup")]
+position = Vector2(-234, -70)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="pause_menu" parent="." instance=ExtResource("9_8mro1")]
+
+[node name="lose_menu" parent="." instance=ExtResource("11_gset4")]
+
+[node name="win_menu" parent="." instance=ExtResource("12_ah5pq")]

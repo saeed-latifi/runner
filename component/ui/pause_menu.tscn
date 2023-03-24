@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd63ehuo0nbkl"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ydduf"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_ydduf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.176471)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="main" type="Button" parent="VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "main menu"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="resume" type="Button" parent="VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "resume
+"
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/main" to="." method="_on_main_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/resume" to="." method="_on_resume_pressed"]

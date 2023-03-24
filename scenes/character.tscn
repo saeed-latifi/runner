@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://da1pty63rplb7"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_dqhw7"]
+[ext_resource type="Texture2D" uid="uid://bs107jvibty4u" path="res://assets/characters/character.jpg" id="1_y4twu"]
+
+[sub_resource type="Animation" id="Animation_7pkkx"]
+length = 2.0
+
+[sub_resource type="Animation" id="Animation_sqy8x"]
+resource_name = "run"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0t0xw"]
+_data = {
+"RESET": SubResource("Animation_7pkkx"),
+"run": SubResource("Animation_sqy8x")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sejkn"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ap7qk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jupge"]
+states/Start/position = Vector2(198, 100)
+states/run/node = SubResource("AnimationNodeAnimation_sejkn")
+states/run/position = Vector2(419, 100)
+transitions = ["Start", "run", SubResource("AnimationNodeStateMachineTransition_ap7qk")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_w60im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sii2p"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5jlc"]
+radius = 67.1193
+
+[node name="character" type="CharacterBody2D" groups=["character_line_detector"]]
+y_sort_enabled = true
+collision_mask = 22
+script = ExtResource("1_dqhw7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+libraries = {
+"": SubResource("AnimationLibrary_0t0xw")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jupge")
+anim_player = NodePath("../AnimationPlayer")
+process_callback = 0
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_w60im")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y4twu")
+hframes = 4
+vframes = 4
+frame = 1
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sii2p")
+
+[node name="detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_k5jlc")
+
+[connection signal="area_entered" from="detector" to="." method="_on_detector_area_entered"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqybccj8e7v7b"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_dnarv"]
+
+[sub_resource type="Gradient" id="Gradient_hc1cm"]
+colors = PackedColorArray(0.89, 0.356, 0, 1, 1, 1, 0.470588, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ohts"]
+gradient = SubResource("Gradient_hc1cm")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ae7g"]
+size = Vector2(60, 60)
+
+[node name="coin" type="Area2D" groups=["point"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_dnarv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = SubResource("GradientTexture2D_8ohts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_5ae7g")

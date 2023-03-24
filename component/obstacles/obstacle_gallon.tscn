@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://foe0ead8ys0c"]
+
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_gxj4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy2qs"]
+size = Vector2(60, 150)
+
+[sub_resource type="Gradient" id="Gradient_41mg0"]
+offsets = PackedFloat32Array(0, 0.45993, 0.484321, 0.550523, 0.56446, 1)
+colors = PackedColorArray(0.26, 0.0754, 0.0754, 1, 0.600348, 0.088554, 0.0591185, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639024, 0.0900488, 0.0572683, 1, 1, 0.104, 0.04, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nghpf"]
+gradient = SubResource("Gradient_41mg0")
+width = 60
+height = 150
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="obstacle_wall" type="Area2D" groups=["obstacle"]]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_gxj4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -75)
+shape = SubResource("RectangleShape2D_hy2qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -75)
+texture = SubResource("GradientTexture2D_nghpf")

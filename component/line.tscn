@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwjjg7pi1dc46"]
+
+[ext_resource type="Script" path="res://scripts/line.gd" id="1_lu1n3"]
+[ext_resource type="PackedScene" uid="uid://d4lj0pbsqo6y4" path="res://component/obstacles/obstacle_bush.tscn" id="3_n5s5o"]
+[ext_resource type="PackedScene" uid="uid://bdkpu6o088rnw" path="res://component/line_detector.tscn" id="3_twuy3"]
+
+[sub_resource type="Gradient" id="Gradient_bt2ph"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wnvww"]
+gradient = SubResource("Gradient_bt2ph")
+width = 100
+height = 20
+fill_from = Vector2(0, 0.978632)
+fill_to = Vector2(0, 0)
+
+[node name="line" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_lu1n3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_wnvww")
+
+[node name="killer" parent="." instance=ExtResource("3_twuy3")]
+position = Vector2(-1100, 0)
+
+[node name="obstacle_wall" parent="." instance=ExtResource("3_n5s5o")]
+
+[connection signal="area_entered" from="killer" to="." method="_on_killer_area_entered"]
