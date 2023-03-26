@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://sxdoirrrqib8"]
+[gd_scene load_steps=3 format=3 uid="uid://sxdoirrrqib8"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_mn6m2"]
+[ext_resource type="Texture2D" uid="uid://mot7w6axvkvb" path="res://assets/graphics/grear-icon.svg" id="2_e6agb"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_mn6m2")
@@ -65,3 +66,31 @@ horizontal_alignment = 2
 [node name="life_value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "6"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(50, -50)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_e6agb")
+
+[node name="setting_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/Sprite2D"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = -256.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/icon_normal_color = Color(1, 0.388235, 0.603922, 1)
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Sprite2D/setting_button" to="." method="_on_setting_button_pressed"]

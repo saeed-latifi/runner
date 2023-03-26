@@ -1,6 +1,9 @@
 extends Node
 
 
+#phone setting
+const SLIDE_SENSITIVITY:= 15
+
 # play info
 var is_paused = false
 var is_win = false
@@ -29,6 +32,7 @@ var coin_count := 0
 var obstacle_count := 0
 
 #scene states
+
 var scene_base_speed := 10.0
 var scene_speed := scene_base_speed
 var scene_max_speed := 30.0

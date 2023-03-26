@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddh5x7avsxbxy"]
+
+[ext_resource type="Script" path="res://scripts/back_ground_box.gd" id="1_7bar4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey2ik"]
+size = Vector2(64, 736)
+
+[node name="back_ground_box" type="Area2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_7bar4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 272)
+shape = SubResource("RectangleShape2D_ey2ik")

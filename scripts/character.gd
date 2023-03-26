@@ -18,9 +18,15 @@ func _physics_process(delta):
 		SceneInfo.character_state=SceneInfo.character_states.runing
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and idle_platform:
-		velocity.y = SceneInfo.JUMP_VELOCITY
+		velocity.y = SceneInfo.JUMP_VELOCITY	
+
 
 	move_and_slide()
+
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		velocity.y = SceneInfo.JUMP_VELOCITY
 
 
 func _on_detector_area_entered(area):

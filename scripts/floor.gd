@@ -23,3 +23,11 @@ func _process(_delta):
 			position.y += SceneInfo.PLATFORM_CHANGE_SPEED
 		else :
 			SceneInfo.platform_state = SceneInfo.platform_states.idle
+
+
+func _unhandled_input(event):
+	if event is InputEventScreenDrag:
+		var swipe = event.relative
+		if   swipe.y < - SceneInfo.SLIDE_SENSITIVITY  : target_posotion = SceneInfo.on_go_up(position.y)
+		elif swipe.y >   SceneInfo.SLIDE_SENSITIVITY  : target_posotion = SceneInfo.on_go_down(position.y)
+		

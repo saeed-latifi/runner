@@ -12,3 +12,7 @@ func _process(_delta):
 	goal.text   = "%s" % [SceneInfo.goal_point]
 	best.text   = "%s" % [SceneInfo.game_progress.best_score]
 
+
+func _on_setting_button_pressed():
+	if not (SceneInfo.is_win or SceneInfo.is_lose):
+		SceneInfo.is_paused = !SceneInfo.is_paused

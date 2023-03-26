@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpvrpfq6nj6x6"]
+[gd_scene load_steps=16 format=3 uid="uid://bpvrpfq6nj6x6"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_uvert"]
 [ext_resource type="PackedScene" uid="uid://dwjjg7pi1dc46" path="res://component/line.tscn" id="1_x4ghp"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cd63ehuo0nbkl" path="res://component/ui/pause_menu.tscn" id="9_8mro1"]
 [ext_resource type="PackedScene" path="res://component/ui/lose.tscn" id="11_gset4"]
 [ext_resource type="PackedScene" uid="uid://b3lq6oajntcxi" path="res://component/ui/win.tscn" id="12_ah5pq"]
+[ext_resource type="PackedScene" uid="uid://ch33bjbrtcwtn" path="res://component/back ground tiles/tile_one.tscn" id="13_js50i"]
 
 [sub_resource type="Gradient" id="Gradient_otj6w"]
 
@@ -32,12 +33,12 @@ texture = SubResource("GradientTexture2D_b5csi")
 metadata/_edit_lock_ = true
 
 [node name="line" parent="." instance=ExtResource("1_x4ghp")]
-position = Vector2(-282, 135)
+position = Vector2(-240, 253)
 obstacles = Array[PackedScene]([ExtResource("2_dy7q6"), ExtResource("3_62miu"), ExtResource("4_bhmdk")])
 coin = ExtResource("7_fjr2x")
 
 [node name="floor" parent="." instance=ExtResource("4_02hy8")]
-position = Vector2(-187, 137)
+position = Vector2(-145, 255)
 
 [node name="character" parent="floor" instance=ExtResource("3_6hqup")]
 position = Vector2(-234, -70)
@@ -50,3 +51,6 @@ metadata/_edit_lock_ = true
 [node name="lose_menu" parent="." instance=ExtResource("11_gset4")]
 
 [node name="win_menu" parent="." instance=ExtResource("12_ah5pq")]
+
+[node name="tile_one" parent="." instance=ExtResource("13_js50i")]
+position = Vector2(604, 116)

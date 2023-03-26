@@ -51,7 +51,7 @@ func create_coin_row():
 	var random_line  = random.randi_range(0,2)
 	for index in range(random_coin_number):
 		var coin_instance = coin.instantiate()
-		var spawn_position := Vector2(spawner_distance + (index * coin_size) + 10,-(random_line * SceneInfo.PLATFORM_CHANGE_RATIO))
+		var spawn_position := Vector2(spawner_distance + (index * (coin_size + 20))  , -(random_line * SceneInfo.PLATFORM_CHANGE_RATIO))
 		coin_instance.position = spawn_position
 		coin_instance.line = random_line
 		coin_instance.z_index = (3 - random_line) * 2
@@ -85,5 +85,4 @@ func _on_killer_area_entered(area):
 	if area.is_in_group("obstacle"):
 		SceneInfo.obstacle_count -= 1
 	area.queue_free()
-
 
