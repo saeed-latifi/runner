@@ -17,3 +17,5 @@ func _process(_delta):
 		xline.get_tree().paused = SceneInfo.is_paused
 		xfloor.get_tree().paused = SceneInfo.is_paused
 		
+
+

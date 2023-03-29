@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://detuq2cvh4f0t" path="res://component/back ground tiles/bg_starter.tscn" id="8_6qvf7"]
 [ext_resource type="PackedScene" uid="uid://sxdoirrrqib8" path="res://component/ui/hud.tscn" id="8_l1fam"]
 [ext_resource type="PackedScene" uid="uid://cd63ehuo0nbkl" path="res://component/ui/pause_menu.tscn" id="9_8mro1"]
-[ext_resource type="PackedScene" path="res://component/ui/lose.tscn" id="11_gset4"]
+[ext_resource type="PackedScene" uid="uid://cl3m5jj1joj8r" path="res://component/ui/lose.tscn" id="11_gset4"]
 [ext_resource type="PackedScene" uid="uid://b3lq6oajntcxi" path="res://component/ui/win.tscn" id="12_ah5pq"]
 [ext_resource type="PackedScene" uid="uid://cjwsudvsc10a1" path="res://component/detectors/node_free.tscn" id="19_j5cy6"]
 
@@ -104,3 +104,5 @@ position = Vector2(-81, 666)
 
 [node name="node_free" parent="." instance=ExtResource("19_j5cy6")]
 position = Vector2(-410, 441)
+
+[connection signal="on_jump" from="floor" to="floor/character" method="_touch_pressed_jump"]

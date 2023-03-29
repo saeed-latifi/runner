@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var detector = $detector/CollisionShape2D
 
 var is_hit = false
+var idle_platform
+var on_floor 
 
 func _process(_delta):
 	match SceneInfo.platform_current_line:
@@ -14,7 +16,8 @@ func _process(_delta):
 
 
 func _physics_process(delta):
-	var idle_platform = SceneInfo.platform_state == SceneInfo.platform_states.idle
+	idle_platform = SceneInfo.platform_state == SceneInfo.platform_states.idle
+	on_floor = is_on_floor()
 
 	if not is_on_floor():
 		animation_player.play("jump")
@@ -29,14 +32,13 @@ func _physics_process(delta):
 			animation_player.play("run")
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and idle_platform and (not is_hit):
-		velocity.y = SceneInfo.JUMP_VELOCITY	
-
+		velocity.y = SceneInfo.JUMP_VELOCITY
 
 	move_and_slide()
 
 
-func _unhandled_input(event):
-	if event is InputEventScreenTouch:
+func _touch_pressed_jump():
+	if on_floor and  idle_platform and (not is_hit):
 		velocity.y = SceneInfo.JUMP_VELOCITY
 
 
@@ -64,3 +66,5 @@ func on_play_hit():
 	sprite.modulate.a = 0.5
 	animation_player.play("hit")
 	is_hit = true
+
+

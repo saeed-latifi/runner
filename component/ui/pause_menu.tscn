@@ -30,17 +30,19 @@ layout_mode = 2
 alignment = 1
 
 [node name="main" type="Button" parent="VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "main menu"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="resume" type="Button" parent="VBoxContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "resume
 "
 

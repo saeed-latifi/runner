@@ -2,7 +2,7 @@ extends Node
 
 
 #phone setting
-const SLIDE_SENSITIVITY:= 15
+const SLIDE_SENSITIVITY:= 19
 
 # play info
 var is_paused = false
