@@ -12,7 +12,7 @@ fill_from = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ae7g"]
 size = Vector2(60, 60)
 
-[node name="coin" type="Area2D" groups=["point"]]
+[node name="coin" type="Area2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_dnarv")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjwsudvsc10a1"]
+
+[ext_resource type="Script" path="res://scripts/node_free.gd" id="1_lg515"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7per"]
+size = Vector2(50, 2000)
+
+[node name="node_free" type="Area2D"]
+collision_layer = 0
+collision_mask = 116
+script = ExtResource("1_lg515")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m7per")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

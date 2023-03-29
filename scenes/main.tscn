@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbprhhywwqkqv"]
+[gd_scene load_steps=2 format=3 uid="uid://di107vwst8ws6"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_jy3yw"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jy3yw"]
 
 [node name="Node2D" type="Control"]
 process_mode = 3
@@ -37,12 +37,12 @@ alignment = 1
 [node name="start" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "شروع"
+text = "continue"
 
 [node name="re_start" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
-text = "شروع از ابتدا"
+text = "re start"
 
 [node name="exit" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 50)

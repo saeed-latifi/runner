@@ -58,8 +58,9 @@ func _ready():
 
 
 func _process(delta):
-	if scene_speed < scene_max_speed:
+	if scene_speed <= scene_max_speed:
 		scene_speed += delta * scene_accelerationl_ratio
+	else: scene_speed = scene_max_speed
 
 	#scene time spawner line slope calc
 	# Y = -(0.025) * X + 1.2

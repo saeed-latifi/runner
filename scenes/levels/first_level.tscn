@@ -1,23 +1,31 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpvrpfq6nj6x6"]
+[gd_scene load_steps=22 format=3 uid="uid://di6yxkbpwsgwe"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_uvert"]
-[ext_resource type="PackedScene" uid="uid://dwjjg7pi1dc46" path="res://component/line.tscn" id="1_x4ghp"]
+[ext_resource type="PackedScene" uid="uid://cixu5sia2u5by" path="res://component/obstacle_line.tscn" id="1_x4ghp"]
 [ext_resource type="PackedScene" uid="uid://d4lj0pbsqo6y4" path="res://component/obstacles/obstacle_bush.tscn" id="2_dy7q6"]
 [ext_resource type="PackedScene" uid="uid://da1pty63rplb7" path="res://scenes/character.tscn" id="3_6hqup"]
 [ext_resource type="PackedScene" uid="uid://foe0ead8ys0c" path="res://component/obstacles/obstacle_gallon.tscn" id="3_62miu"]
+[ext_resource type="PackedScene" uid="uid://b0nhokdlejmqq" path="res://component/background_line.tscn" id="3_jj87q"]
 [ext_resource type="PackedScene" uid="uid://bqb1bjbf70n22" path="res://component/floor.tscn" id="4_02hy8"]
+[ext_resource type="PackedScene" path="res://component/tile_box.tscn" id="4_7bya2"]
 [ext_resource type="PackedScene" uid="uid://bqdgoqpvq5jyd" path="res://component/obstacles/obstacle_wall.tscn" id="4_bhmdk"]
+[ext_resource type="PackedScene" uid="uid://dstyo5kwokp5g" path="res://component/back ground tiles/tile_blue.tscn" id="5_64nyu"]
+[ext_resource type="PackedScene" uid="uid://beygd6ig5lkn0" path="res://component/back ground tiles/tile_green.tscn" id="6_6ibfy"]
 [ext_resource type="PackedScene" uid="uid://bqybccj8e7v7b" path="res://component/point/coin.tscn" id="7_fjr2x"]
+[ext_resource type="PackedScene" uid="uid://baj7w4m0unhgi" path="res://component/back ground tiles/tile_purple.tscn" id="7_kf50a"]
+[ext_resource type="PackedScene" uid="uid://detuq2cvh4f0t" path="res://component/back ground tiles/bg_starter.tscn" id="8_6qvf7"]
 [ext_resource type="PackedScene" uid="uid://sxdoirrrqib8" path="res://component/ui/hud.tscn" id="8_l1fam"]
 [ext_resource type="PackedScene" uid="uid://cd63ehuo0nbkl" path="res://component/ui/pause_menu.tscn" id="9_8mro1"]
 [ext_resource type="PackedScene" path="res://component/ui/lose.tscn" id="11_gset4"]
 [ext_resource type="PackedScene" uid="uid://b3lq6oajntcxi" path="res://component/ui/win.tscn" id="12_ah5pq"]
-[ext_resource type="PackedScene" uid="uid://ch33bjbrtcwtn" path="res://component/back ground tiles/tile_one.tscn" id="13_js50i"]
+[ext_resource type="PackedScene" uid="uid://cjwsudvsc10a1" path="res://component/detectors/node_free.tscn" id="19_j5cy6"]
 
-[sub_resource type="Gradient" id="Gradient_otj6w"]
+[sub_resource type="Gradient" id="Gradient_uwsxl"]
+offsets = PackedFloat32Array(0, 0.535948, 0.591503, 1)
+colors = PackedColorArray(0.65, 0.561817, 0.4095, 1, 0.929412, 0.803922, 0.584314, 1, 0.87451, 0.352941, 0.705882, 1, 0.403922, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5csi"]
-gradient = SubResource("Gradient_otj6w")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3l7p"]
+gradient = SubResource("Gradient_uwsxl")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -25,25 +33,64 @@ fill_to = Vector2(0, 0)
 process_mode = 3
 script = ExtResource("1_uvert")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_a3l7p")
+
 [node name="HUD" parent="." instance=ExtResource("8_l1fam")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(40, 40)
-texture = SubResource("GradientTexture2D_b5csi")
-metadata/_edit_lock_ = true
+[node name="back_ground_line2" parent="." instance=ExtResource("3_jj87q")]
+position = Vector2(607, 466)
+speed_multiplier = 0.8
+first_spawn_position = 4090
+tile_box = ExtResource("4_7bya2")
+tiles = Array[PackedScene]([ExtResource("5_64nyu"), ExtResource("6_6ibfy"), ExtResource("7_kf50a")])
 
-[node name="line" parent="." instance=ExtResource("1_x4ghp")]
-position = Vector2(-240, 253)
+[node name="back_ground_box" parent="back_ground_line2" instance=ExtResource("4_7bya2")]
+position = Vector2(4123, 0)
+collision_layer = 64
+speed_multiplier = 0.8
+
+[node name="bg starter" parent="back_ground_line2/back_ground_box" instance=ExtResource("8_6qvf7")]
+position = Vector2(-4793, 0)
+
+[node name="back_ground_line" parent="." instance=ExtResource("3_jj87q")]
+position = Vector2(375, 561)
+speed_multiplier = 0.95
+first_spawn_position = 4090
+tile_box = ExtResource("4_7bya2")
+tiles = Array[PackedScene]([ExtResource("5_64nyu"), ExtResource("6_6ibfy"), ExtResource("7_kf50a")])
+
+[node name="back_ground_box" parent="back_ground_line" instance=ExtResource("4_7bya2")]
+position = Vector2(4123, 0)
+collision_layer = 64
+speed_multiplier = 0.95
+
+[node name="bg starter" parent="back_ground_line/back_ground_box" instance=ExtResource("8_6qvf7")]
+position = Vector2(-4793, 0)
+
+[node name="obstacle_line" parent="." instance=ExtResource("1_x4ghp")]
+position = Vector2(-80, 924)
 obstacles = Array[PackedScene]([ExtResource("2_dy7q6"), ExtResource("3_62miu"), ExtResource("4_bhmdk")])
 coin = ExtResource("7_fjr2x")
 
 [node name="floor" parent="." instance=ExtResource("4_02hy8")]
-position = Vector2(-145, 255)
+position = Vector2(690, 923)
 
 [node name="character" parent="floor" instance=ExtResource("3_6hqup")]
 position = Vector2(-234, -70)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_bottom = 1080
+limit_smoothed = true
 metadata/_edit_lock_ = true
 
 [node name="pause_menu" parent="." instance=ExtResource("9_8mro1")]
@@ -52,5 +99,8 @@ metadata/_edit_lock_ = true
 
 [node name="win_menu" parent="." instance=ExtResource("12_ah5pq")]
 
-[node name="tile_one" parent="." instance=ExtResource("13_js50i")]
-position = Vector2(604, 116)
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-81, 666)
+
+[node name="node_free" parent="." instance=ExtResource("19_j5cy6")]
+position = Vector2(-410, 441)

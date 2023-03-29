@@ -16,7 +16,7 @@ height = 150
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[node name="obstacle_wall" type="Area2D" groups=["obstacle"]]
+[node name="obstacle_wall" type="Area2D"]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_gxj4i")

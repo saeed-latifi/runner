@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cixu5sia2u5by"]
+
+[ext_resource type="Script" path="res://scripts/obstacle_line.gd" id="1_mc3k8"]
+[ext_resource type="PackedScene" uid="uid://cfculfl4nugr7" path="res://component/be_ready.tscn" id="3_1fcc0"]
+
+[node name="obstacle_line" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_mc3k8")
+
+[node name="be_ready" parent="." instance=ExtResource("3_1fcc0")]

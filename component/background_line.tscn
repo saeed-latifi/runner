@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0nhokdlejmqq"]
+
+[ext_resource type="Script" path="res://scripts/background_line.gd" id="1_idh1a"]
+[ext_resource type="PackedScene" uid="uid://bdkpu6o088rnw" path="res://component/detectors/background_spawner.tscn" id="3_850a7"]
+
+[sub_resource type="Gradient" id="Gradient_fm8wp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hwx0d"]
+gradient = SubResource("Gradient_fm8wp")
+width = 100
+height = 2
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="background_line" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_idh1a")
+
+[node name="level_balancer" type="Sprite2D" parent="."]
+position = Vector2(-1000, 0)
+texture = SubResource("GradientTexture2D_hwx0d")
+
+[node name="background_spawner" parent="." instance=ExtResource("3_850a7")]
+position = Vector2(2800, 0)
+
+[node name="sprite_line" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="background_spawner" to="." method="_on_spawner_area_entered"]

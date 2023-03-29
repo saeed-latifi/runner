@@ -1,4 +1,5 @@
 extends Area2D
+
 @export_enum("bottom","tmiddle","top") var line
 @export_range(0,100) var hit = 50
 

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch33bjbrtcwtn"]
-
-[ext_resource type="Texture2D" uid="uid://dorre4luogexi" path="res://assets/art-works/t1.jpg" id="1_41iai"]
-
-[node name="tile_one" type="Sprite2D"]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_41iai")
-centered = false

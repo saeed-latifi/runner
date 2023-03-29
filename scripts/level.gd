@@ -2,7 +2,7 @@ extends Node2D
 
 var is_paused 
 
-@onready var xline = $line
+@onready var xline = $obstacle_line
 @onready var xfloor = $floor
 
 func _ready():

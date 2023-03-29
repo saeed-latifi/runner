@@ -32,8 +32,7 @@ func _process(delta):
 	spawner()
 
 
-func create_obstacle():
-	SceneInfo.obstacle_count += 1
+func create_obstacle():	
 	var random = RandomNumberGenerator.new()
 	var random_index = random.randi_range(0,obstacles.size()-1)
 	var random_line  = random.randi_range(0,2)
@@ -42,6 +41,8 @@ func create_obstacle():
 	obstacle_instance.position = spawn_position
 	obstacle_instance.line = random_line
 	obstacle_instance.z_index = (3 - random_line) * 2
+	obstacle_instance.add_to_group("obstacle")
+	SceneInfo.obstacle_count += 1
 	call_deferred("add_child",obstacle_instance)
 
 
@@ -55,6 +56,7 @@ func create_coin_row():
 		coin_instance.position = spawn_position
 		coin_instance.line = random_line
 		coin_instance.z_index = (3 - random_line) * 2
+		coin_instance.add_to_group("buff")
 		SceneInfo.coin_count += 1
 		call_deferred("add_child",coin_instance)
 
@@ -77,12 +79,4 @@ func spawner():
 			coin_last_spawn = 0
 			last_spawn = 0
 			create_coin_row()
-
-
-func _on_killer_area_entered(area):
-	if area.is_in_group("buff"):
-		SceneInfo.coin_count -= 1
-	if area.is_in_group("obstacle"):
-		SceneInfo.obstacle_count -= 1
-	area.queue_free()
 
