@@ -22,7 +22,7 @@ var   character_state = character_states.runing
 
 #platform states
 const PLATFORM_CHANGE_SPEED := 15
-const PLATFORM_CHANGE_RATIO := 90
+const PLATFORM_CHANGE_RATIO := 120
 enum  platform_lines { bottom, middle, top }
 enum  platform_states {idle, go_up, go_doown}
 var   platform_state = platform_states.idle
@@ -45,7 +45,15 @@ const SAVED_GAME_PROGRESS_FILE_PATH := PROJECT_DIRECTORY + "game_progress.gor"
 const DEFAULT_GAME_PROGRESS = {
 	"level": 1,
 	"best_score": 0,
+	"guide_viewed": true,
 }
+
+const NEW_GAME_PROGRESS = {
+	"level": 1,
+	"best_score": 0,
+	"guide_viewed": false,
+}
+
 var game_progress: Dictionary 
 
 
@@ -89,7 +97,7 @@ func save_progress() -> void:
 
 func load_progress() -> void:
 	if not FileAccess.file_exists(SAVED_GAME_PROGRESS_FILE_PATH):
-		game_progress = DEFAULT_GAME_PROGRESS
+		game_progress = NEW_GAME_PROGRESS
 		save_progress()
 		
 	var progress_file =  FileAccess.open(SAVED_GAME_PROGRESS_FILE_PATH,FileAccess.READ)

@@ -34,24 +34,24 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="start" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
+[node name="new_game" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "new game"
+
+[node name="continue" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(180, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "continue"
 
-[node name="re_start" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "re start"
-
 [node name="exit" type="Button" parent="BoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
+custom_minimum_size = Vector2(180, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "exit"
 
-[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/re_start" to="." method="_on_re_start_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/new_game" to="." method="_on_re_start_pressed"]
+[connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/continue" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="BoxContainer/VBoxContainer/HBoxContainer/exit" to="." method="_on_exit_pressed"]

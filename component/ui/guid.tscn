@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqm8v1vty1hj"]
+
+[ext_resource type="Script" path="res://scripts/guid.gd" id="1_3so4q"]
+[ext_resource type="Texture2D" uid="uid://cpl2dnpolofgy" path="res://assets/graphics/guid.png" id="2_0qek6"]
+
+[node name="guid" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_3so4q")
+
+[node name="TextureRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.560784)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0qek6")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -262.0
+offset_right = -184.0
+offset_bottom = -130.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.882353, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "lets go"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

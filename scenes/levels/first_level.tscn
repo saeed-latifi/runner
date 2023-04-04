@@ -33,10 +33,10 @@ fill_to = Vector2(0, 0)
 process_mode = 3
 script = ExtResource("1_uvert")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="bg color" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="bg color"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,7 +62,7 @@ speed_multiplier = 0.8
 position = Vector2(-4793, 0)
 
 [node name="back_ground_line" parent="." instance=ExtResource("3_jj87q")]
-position = Vector2(375, 561)
+position = Vector2(375, 601)
 speed_multiplier = 0.95
 first_spawn_position = 4090
 tile_box = ExtResource("4_7bya2")
@@ -77,12 +77,12 @@ speed_multiplier = 0.95
 position = Vector2(-4793, 0)
 
 [node name="obstacle_line" parent="." instance=ExtResource("1_x4ghp")]
-position = Vector2(-80, 924)
+position = Vector2(-66, 963)
 obstacles = Array[PackedScene]([ExtResource("2_dy7q6"), ExtResource("3_62miu"), ExtResource("4_bhmdk")])
 coin = ExtResource("7_fjr2x")
 
 [node name="floor" parent="." instance=ExtResource("4_02hy8")]
-position = Vector2(690, 923)
+position = Vector2(704, 962)
 
 [node name="character" parent="floor" instance=ExtResource("3_6hqup")]
 position = Vector2(-234, -70)
