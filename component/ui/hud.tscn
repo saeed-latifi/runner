@@ -91,6 +91,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_e6agb")
 
 [node name="setting_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/Sprite2D"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +106,6 @@ theme_override_colors/icon_normal_color = Color(1, 0.388235, 0.603922, 1)
 flat = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/Sprite2D"]
-visible = false
 shape = SubResource("CircleShape2D_kcpdt")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Sprite2D/setting_button" to="." method="_on_setting_button_pressed"]
